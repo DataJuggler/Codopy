@@ -1,0 +1,40 @@
+﻿@page "/"
+@using DataJuggler.Blazor.Components
+@using DataJuggler.Blazor.Components.Enumerations
+@using System.Drawing
+@using BlazorStyled
+@inject IJSRuntime JSRuntime
+
+<Styled @bind-Classname="@CheckMarkClassName">
+    width: 32px;
+    height: 32px;
+    position: fixed;
+    bottom: 24vh;
+    left: 16%;
+    background-size: 100% 100%;
+    background-image: url('../Images/Check.png');
+    z-index: 120;
+    visibility: @CheckVisibility;
+</Styled>
+
+<PageTitle>Codopy Home</PageTitle>
+
+<div class="logo"></div>
+
+<ComboBox Name="ComboBoxControl" Parent="this" Unit="px" Width="160" HeightUnit="vh" Height="3.6" LabelText="Select:" LabelWidth=54 ZIndex=20
+    Left="10" Top="0" Theme="ThemeEnum.Brown" LabelLeft="-16" LabelColor="Color.LemonChiffon" ButtonTextColor="Color.LemonChiffon" ButtonLeft=36 ButtonTop=0
+    TextSize="TextSizeEnum.SmallMedium" ListItemLeft="56" LabelClassName="down20 right16" ListItemTop="0"></ComboBox>
+<br />
+<ValidationComponent Name="SourceControl" Caption="Source:" Parent="this" Unit="px" Column1Width="64" Column2Width="480" TextBoxWidth="480"
+        LabelClassName="down8" Left="0" MarginLeft="4" Multiline=true HeightUnit="vh" Height="20" Top=12 LabelFontSizeUnit="em"
+        LabelFontSize=".8" LabelColor="lemonchiffon"></ValidationComponent>
+<br />
+<button class="blackbutton" @onclick=Format>Format</button>
+<br />
+<ValidationComponent Name="ResultsControl" Caption="Results:" Parent="this" Unit="px" Column1Width="64" Column2Width="480" TextBoxWidth="480"
+        LabelClassName="down8" Left="0" MarginLeft="4" Multiline=true HeightUnit="vh" Height="20" Top=12 LabelFontSizeUnit="em"
+        LabelFontSize=".8" LabelColor="lemonchiffon"></ValidationComponent>
+<br />
+<button class="blackbutton" @onclick=Copy>Copy</button>
+<div class="@CheckMarkClassName"></div>
+<br />
