@@ -53,6 +53,65 @@ body
     border: none;
     background-repeat: no-repeat;
 }
+.businesscard
+{
+    float: right;
+    position: fixed;    
+    top: 16vh;  
+    right: 4%;    
+    width: 22%;    
+    height: auto;
+    min-height: 22vh;
+    background-image: url('../images/BusinessCard.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 255;
+}
+.info 
+{
+    color: lemonchiffon;
+    font-family: Verdana;
+    font-size: .8em;
+    float: right;
+    position: fixed;    
+    top: 20vh;  
+    right: 32%;   
+    max-width: 20%;
+    z-index: 300;
+}
+.linkcolor
+{
+    color: royalblue;
+}
+.linkcolor:visited
+{
+    color: royalblue;
+}
+.noborder
+{
+    display: block;
+    outline: none;
+    border: none;
+    z-index: 51;
+}
+.statuslabel
+{
+    float: left;
+    position: fixed;
+    top: 12vh;
+    left: 8%;
+    color: indianred;
+    font-size: 1em;
+    font-family: Verdana;
+}
+.version 
+{
+    position: fixed;
+    right: 4%;
+    top: 2vh;
+    color: lemonchiffon;
+    font-size: 14px;
+}
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

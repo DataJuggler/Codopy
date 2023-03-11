@@ -31,6 +31,7 @@ namespace Codopy.Pages
         private Timer.Timer timer;
         private string checkVisibility;
         private string checkMarkClassName;
+        private string statusMessage;
         #endregion
         
         #region Constructor
@@ -135,21 +136,31 @@ namespace Codopy.Pages
                 {
                     // if this is the combobox
                     if (message.Sender.Name == "ComboBoxControl")
-                    {
-                        // Set the SelectedItem
-                        ComboBox.SetSelectedItem(message.Text);
-                        
+                    {  
                         // if Python
                         if (message.Text == "Python")
                         {
                             // Set to Python
                             Language = LanguageEnum.Python;
+
+                            // Show the user a message
+                            StatusMessage = "Python is not supported yet.";                            
                         }
                         else
                         {
                             // default to C#
                             Language = LanguageEnum.CSharp;
+                            StatusMessage = "";
                         }
+
+                        // Update the UI
+                        Refresh();
+
+                        // Reset to C#
+                        ComboBox.SetSelectedItem(message.Text);
+
+                        // Update the UI
+                        ComboBox.Refresh();
                     }
                 }
             }
@@ -374,6 +385,17 @@ namespace Codopy.Pages
                 }
                 #endregion
                 
+                #region StatusMessage
+                /// <summary>
+                /// This property gets or sets the value for 'StatusMessage'.
+                /// </summary>
+                public string StatusMessage
+                {
+                    get { return statusMessage; }
+                    set { statusMessage = value; }
+                }
+                #endregion
+            
                 #region Timer
                 /// <summary>
                 /// This property gets or sets the value for 'Timer'.
